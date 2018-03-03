@@ -1,0 +1,434 @@
+body {
+  font-family: "PT Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  line-height: 27px;
+}
+
+.font-header {
+	font-size: 56px;
+    line-height: 64px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.font-title {
+	font-size: 48px;
+	line-height: 64px;
+	margin-bottom: 32px;
+	font-weight: 400;
+}
+
+.font-subject {
+	font-size: 20px;
+    font-weight: 600;
+}
+
+.font-subnote {
+	font-size: 13px;
+    margin-bottom: 4px;
+    color: #707070;
+    line-height: 20px;
+}
+
+.font-intro {
+	font-size: 20px;
+    line-height: 34px;
+}
+
+.font-point {
+	font-size: 20px;
+	line-height: 34px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.hero-section {
+	color: #fff;
+	min-height: 512px;
+	padding-bottom: 64px;
+	background-color: #050412;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	background-position-y: 0;
+}
+
+.hero-section--work {
+	background-color: #050412;
+	min-height: 364px;
+}
+
+.hero-section--alice {
+	background-color: #273138;
+	min-height: 464px;
+}
+
+.hero-section--booking {
+	background-color: #001b42;
+	min-height: 436px;
+}
+
+.hero-section--linesup{
+	background-color: #052840;
+	min-height: 436px;
+}
+
+.hero-section--mpic{
+	background-color: #333;
+	min-height: 496px;
+}
+
+.hero-section--goodroads  {
+	background-color: #46754b;
+	min-height: 436px;
+}
+
+.hero-section--philips  {
+	background-color: #303030;
+	min-height: 484px;
+}
+
+.hero-section--main {
+	background-image: url(../images/polar-lights2.jpg);
+}
+
+.hero-section--about {
+	background-image: url(../images/polar-lights4.jpg);
+}
+
+.hero-section:before {
+	background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 75%);
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.present-section {
+    padding-top: 64px;
+}
+
+.present-section--alice {
+	background-color: #1c2226;
+    margin-top: 140px;
+    padding-bottom: 64px;
+    color: #fff;
+}
+
+.present-section--hue {
+	background-color: #252525;
+    margin-top: 100px;
+    padding-bottom: 64px;
+    color: #fff;
+}
+
+.present-section--linesup {
+	background-color: #252525;
+    padding-bottom: 64px;
+    color: #fff;
+}
+
+.present-section--grey {
+	background-color: #f5f5f5;
+    margin-top: 140px;
+    padding-bottom: 64px;
+}
+
+.present-section--goodroads {
+	background-color: #252525;
+    margin-top: 140px;
+    padding-bottom: 64px;
+    color: #fff;
+}
+.present-section--goodroads .font-subnote {
+	color: #ccc;
+}
+
+.hero-section__intro--main {
+	margin-top: 32px;
+}
+
+.hero-section--about:before {
+	background: linear-gradient(to right, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.3) 75%);
+}
+
+.navigation-section a:link,
+.navigation-section a:visited{
+	color: #000;
+	opacity: 0.75;
+}
+
+.hero-section a:link,
+.hero-section a:visited{
+	color: #fff;
+	opacity: 0.75;
+}
+
+.navigation-section a:hover,
+.hero-section a:hover{
+	opacity: 1;
+}
+
+.nav-link.active {
+	opacity: 1;
+	font-weight: 800;
+}
+
+.header {
+	padding: 48px 0px;
+}
+
+ a.logo:link {
+	text-decoration: none;
+}
+
+.logo-placeholder {
+	margin-top: 16px;
+}
+
+.logo-placeholder--back:hover:before {
+	content: "←";
+	position: absolute;
+	margin-left: -24px;
+	margin-top: -2px;
+}
+
+.main-navigation {
+	float: right;
+}
+
+.main-navigation .nav-link{
+	font-size: 15px;
+	padding: 16px;
+}
+
+.content {
+	padding-bottom: 64px;
+}
+
+.content .section:first-child{
+	margin-top: 0px;
+}
+
+.content .section{
+	margin-top: 64px;
+	margin-bottom: 64px;
+}
+
+.secondary__info {
+	font-size: 13px;
+	line-height: 22px;
+}
+
+.secondary__info--lines {
+	max-width: 270px;
+	margin-top: 16px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.section__point {
+	margin-top: 64px;
+}
+
+.section__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.section__list > li {
+	margin-bottom: 4px;
+}
+
+ul.section__list > li:last-child {
+	margin-bottom: 16px;
+}
+
+.section__list--dashed > li {
+	padding-left: 22px;
+}
+
+.section__list--numeric{
+	list-style-type:decimal;
+}
+
+.section__list--dashed > li:before {
+  content: "—";
+  margin-left: -22px;
+  position: absolute;
+}
+
+.interpunkt {
+	color: #383838;
+}
+
+a.project-item:link,
+a.project-item:visited {
+	color: #383838;
+}
+
+a.project-item:hover {
+	text-decoration: none;
+	color: #111;
+}
+
+.project-line {
+	transition: all .2s ease;
+	position: relative;
+	padding-right: 12px;
+}
+
+.project-line:hover {
+	margin-left: 12px;
+	padding-right: 0px;
+	cursor: pointer;
+}
+
+
+.project-line:hover:before {
+	content: "→";
+	position: absolute;
+	margin-left: -24px;
+	margin-top: -2px;
+}
+
+.project-line--intro {
+	transition: all .2s ease;
+	position: relative;
+}
+
+.project-line--intro:hover {
+	margin-top: 60px;
+	cursor: pointer;
+}
+
+.project-line--intro:hover > .project-line__item {
+	-webkit-box-shadow: 0px 35px 36px -28px rgba(148,148,148,0.75);
+	-moz-box-shadow: 0px 35px 36px -28px rgba(148,148,148,0.75);
+	box-shadow: 0px 35px 36px -28px rgba(148,148,148,0.75);
+}
+
+.project-line__item {
+	width: 100%;
+    height: 300px;
+    margin-bottom: 24px;
+    padding: 24px;
+    border-radius: 3px;
+    background: #f2f2f2;
+    transition: all .2s ease;
+}
+
+.project-line__roads {
+	background: #46754b;
+	color: #fff;
+}
+
+.project-line__roads img {
+	margin-left: -170px;
+	width: 453px;
+	margin-top: 70px;
+	transition: all .2s ease;
+}
+
+.project-line__roads:hover > img {
+	margin-top: 74px;	
+}
+
+.project-line__alice img {
+	margin-top: 82px;
+	transition: all .2s ease;
+}
+
+.project-line__alice:hover > img {
+	margin-top: 86px;	
+}
+
+.project-line__alice {
+	background: #273138;
+	color: #fff;
+}
+
+.project-line__hue img {
+	margin-top: -5px;
+    width: 320px;
+    transition: all .2s ease;
+    margin-left: -42px;
+}
+
+.project-line__hue:hover  img {
+	margin-top: -1px;	
+}
+
+
+.project-line__hue {
+	background: #303030;
+	color: #fff;
+}
+
+.footer {
+	font-size: 13px;
+    color: #707070;
+    border-top: 1px solid #ededed;
+    padding-top: 64px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 991px) {
+	.section__point {
+	    margin-top: 32px;
+	}
+	.project-line__item {
+		height: auto;
+	}
+
+	.project-line__item img {
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: 767px) {
+	.main-navigation {
+	    float: left;
+	    margin-left: -12px;
+	    margin-top: 32px;
+	}
+
+	.main-navigation .nav-link {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+}
+
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1000px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

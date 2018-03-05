@@ -71,7 +71,12 @@ body {
 }
 
 .hero-section--work {
-	background-color: #050412;
+	background-color: #18181c;
+	min-height: 364px;
+}
+
+.hero-section--contact {
+	background-color: #18181c;
 	min-height: 364px;
 }
 

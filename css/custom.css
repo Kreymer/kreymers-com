@@ -414,19 +414,37 @@ a.project-item:hover {
 	}
 }
 
-.supporting-image--alice {
+.supporting-image--alice,
+.supporting-image--instahue,
+.supporting-image--linesup{
 	margin-left: -26px;
 	margin-top: -120px;
 }
 
 .hero-image--process {
 	max-width: 512px;
-	margin-top: 32px;
+    margin-bottom: 16px;
+    width: 100%;
+    margin-left: -32px;
+}
+
+.hero-image--linesup {
+	margin-bottom: 32px;
+    width: 100%;
+    max-width: 232px;
+}
+
+.hero-image--mpic {
+	margin-bottom: 48px;
+    width: 100%;
+    max-width: 486px;
 }
 
 .hero-image--alice {
 	position: absolute;
 	bottom: 1px;
+	width: 100%;
+	max-width: 609px;
 }
 
 .hero-image--goodroads {
@@ -437,9 +455,19 @@ a.project-item:hover {
 	margin-left: -232px;
 }
 
-.hero-image--m.hero-image--alice,
-.hero-image--m.hero-image--process,
-.hero-image--m.hero-image--goodroads {
+.hero-image--instahue
+{
+	width: 353px;
+	position: absolute;
+	margin-top: 130px;
+}
+
+.secondary__info--m {
+	display: none;
+}
+
+.hero-image--goodroads-m,
+.hero-image--instahue-m {
 	display: none;
 }
 
@@ -497,41 +525,50 @@ a.project-item:hover {
 	}
 
 	.secondary__info--m {
+		display: block;;
 		border-bottom: 1px solid #ddd;
     	padding-bottom: 16px;
 	}
 
-	.hero-image--process {
-		display: none;
-		margin-left: -24px;
-		margin-bottom: 24px;
+	.hero-section.hero-section--alice {
+		min-height: 420px;
 	}
 
-	.hero-image--alice {
-		display: none;
-		margin-bottom: 24px;
-	}
-
-	.hero-image--goodroads {
-		display: none;
-		bottom: 0px;
-		margin-left: -130px;
-	}
-
-	.hero-image--m {
-		display: block;
-		width: 100%;
-		position: relative;
-	}
-
-	.supporting-image--alice {
+	.supporting-image--alice,
+	.supporting-image--instahue,
+	.supporting-image--linesup {
 		margin-left: 0;
 	}
 
+	.hero-image--goodroads,
+	.hero-image--instahue {
+		display: none;
+	}
+
+	.hero-image--goodroads-m {
+		display: block;
+		margin-left: -196px;
+		margin-bottom: 16px;
+		min-width: 453px;
+	}
+
+	.hero-image--instahue-m {
+		display: block;
+		margin-bottom: 16px;
+		min-width: 353px;	
+		width: 100%;
+	}	
+
 	.present-section--grey,
-	.present-section--alice {
+	.present-section--alice,
+	.present-section--hue,
+	.present-section--linesup {
 		margin-top: 80px;
     	padding-bottom: 24px;
+	}
+
+	.present-section--linesup {
+		text-align: center;
 	}
 
 }

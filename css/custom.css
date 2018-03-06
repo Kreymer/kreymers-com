@@ -437,8 +437,9 @@ a.project-item:hover {
 	margin-left: -232px;
 }
 
-
-.hero-image--m {
+.hero-image--m.hero-image--alice,
+.hero-image--m.hero-image--process,
+.hero-image--m.hero-image--goodroads {
 	display: none;
 }
 

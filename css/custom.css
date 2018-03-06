@@ -428,6 +428,13 @@ a.project-item:hover {
     margin-left: -32px;
 }
 
+.hero-image--work {
+	margin-top: 32px;
+    margin-bottom: 64px;
+    width: 100%;
+    max-width: 570px;
+}
+
 .hero-image--linesup {
 	margin-bottom: 32px;
     width: 100%;
@@ -469,6 +476,10 @@ a.project-item:hover {
 .hero-image--goodroads-m,
 .hero-image--instahue-m {
 	display: none;
+}
+
+.custom-section--goodroads {
+	margin-top: 128px;
 }
 
 @media screen and (max-width: 767px) {
@@ -569,6 +580,10 @@ a.project-item:hover {
 
 	.present-section--linesup {
 		text-align: center;
+	}
+
+	.custom-section--goodroads {
+		margin-top: 32px;
 	}
 
 }

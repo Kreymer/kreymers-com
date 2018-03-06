@@ -438,6 +438,10 @@ a.project-item:hover {
 }
 
 
+.hero-image--m {
+	display: none;
+}
+
 @media screen and (max-width: 767px) {
 
 	.font-header {

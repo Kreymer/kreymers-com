@@ -59,6 +59,12 @@ body {
     margin-bottom: 12px;
 }
 
+.font-sub-nav {
+	font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 12px;
+}
+
 .hero-section {
 	color: #fff;
 	min-height: 512px;
@@ -234,6 +240,12 @@ body {
 	margin-bottom: 64px;
 }
 
+.section--navigation {
+	padding-top: 64px;
+	padding-bottom: 64px;
+	border-top: 1px solid #ededed;
+}
+
 .secondary__info {
 	font-size: 13px;
 	line-height: 22px;
@@ -296,6 +308,37 @@ a.project-item:hover {
 	transition: all .2s ease;
 	position: relative;
 	padding-right: 12px;
+}
+
+.project-line.project-line--navigation-forward,
+.project-line.project-line--navigation-backward {
+	margin-left: 24px;
+}
+
+.project-line.project-line--navigation-backward {
+	padding-right: 0px;
+}
+
+.project-line.project-line--navigation-forward {
+	padding-right: 24px;
+}
+
+.project-line--navigation-forward:before {
+	content: "→";
+	position: absolute;
+	margin-left: -24px;
+	margin-top: -2px;
+}
+
+.project-line--navigation-backward:before {
+	content: "←";
+	position: absolute;
+	margin-left: -24px;
+	margin-top: -2px;
+}
+
+.font-subject {
+	margin-bottom: 2px;
 }
 
 .project-line--intro {
@@ -404,6 +447,24 @@ a.project-item:hover {
 		position: absolute;
 		margin-left: -24px;
 		margin-top: -2px;
+	}
+
+
+
+	.project-line.project-line--navigation-backward:hover {
+		margin-left: 0px;
+		padding-right: 24px;
+		cursor: pointer;
+	}
+
+	.project-line.project-line--navigation-forward:hover {
+		margin-left: 48px;
+		padding-left: 0px;
+		cursor: pointer;
+	}
+
+	.project-line.project-line--navigation-backward:hover:before {
+		content: "←";
 	}
 
 	.project-line--intro:hover {

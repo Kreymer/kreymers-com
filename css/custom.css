@@ -312,7 +312,7 @@ a.project-item:hover {
 
 .project-line.project-line--navigation-forward,
 .project-line.project-line--navigation-backward {
-	margin-left: 24px;
+	margin-left: 12px;
 }
 
 .project-line.project-line--navigation-backward {
@@ -320,13 +320,14 @@ a.project-item:hover {
 }
 
 .project-line.project-line--navigation-forward {
-	padding-right: 24px;
+	padding-right: 12px;
+	text-align: right;
 }
 
 .project-line--navigation-forward:before {
 	content: "→";
 	position: absolute;
-	margin-left: -24px;
+	margin-left: 12px;
 	margin-top: -2px;
 }
 
@@ -449,7 +450,13 @@ a.project-item:hover {
 		margin-top: -2px;
 	}
 
+	.project-line.project-line--navigation-backward:hover:before {
+		margin-left: -30px;
+	}
 
+	.project-line.project-line--navigation-forward:hover:before {
+		margin-left: 18px;
+	}
 
 	.project-line.project-line--navigation-backward:hover {
 		margin-left: 0px;
@@ -458,8 +465,8 @@ a.project-item:hover {
 	}
 
 	.project-line.project-line--navigation-forward:hover {
-		margin-left: 48px;
-		padding-left: 0px;
+		margin-left: 0px;
+		padding-left: 12px;
 		cursor: pointer;
 	}
 
@@ -656,6 +663,19 @@ a.project-item:hover {
 	.custom-section--goodroads {
 		margin-top: 32px;
 	}
+
+	.section--navigation {
+		padding: 32px 0;
+	}
+
+	.project-line.project-line--navigation-forward {
+		text-align: right;
+	}
+
+	.project-line--navigation-forward:before {
+		margin-left: 8px;
+	}
+
 
 }
 

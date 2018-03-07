@@ -9,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   line-height: 27px;
+  overflow-x: hidden;
 }
 
 .font-header {
@@ -72,7 +73,7 @@ body {
 
 .hero-section--work {
 	background-color: #18181c;
-	min-height: 364px;
+	min-height: 404px;
 }
 
 .hero-section--contact {
@@ -178,12 +179,14 @@ body {
 .navigation-section a:visited{
 	color: #000;
 	opacity: 0.75;
+	transition: all .2s ease;
 }
 
 .hero-section a:link,
 .hero-section a:visited{
 	color: #fff;
 	opacity: 0.75;
+	transition: all .2s ease;
 }
 
 .navigation-section a:hover,
@@ -298,6 +301,7 @@ a.project-item:hover {
 .project-line--intro {
 	transition: all .2s ease;
 	position: relative;
+	margin-top: 32px;
 }
 
 .project-line__item {
@@ -403,7 +407,7 @@ a.project-item:hover {
 	}
 
 	.project-line--intro:hover {
-		margin-top: 60px;
+		margin-top: 28px;
 		cursor: pointer;
 	}
 
@@ -429,10 +433,12 @@ a.project-item:hover {
 }
 
 .hero-image--work {
-	margin-top: 32px;
-    margin-bottom: 64px;
-    width: 100%;
+	width: 100%;
     max-width: 570px;
+    min-width: 570px;
+    position: absolute;
+    bottom: -19px;
+    margin-left: 15px;
 }
 
 .hero-image--linesup {
@@ -500,6 +506,11 @@ a.project-item:hover {
 		padding-bottom: 32px;
 		min-height: auto;
 	}
+
+	.hero-section.hero-section--work {
+		min-height: 356px;
+	}
+
 	.header {
 		padding: 24px 0px;
 	}
@@ -526,7 +537,6 @@ a.project-item:hover {
 		margin-top: 0px;
 	}
 
-	.hero-section--work,
 	.hero-section--contact {
 		min-height: auto;
 	}

@@ -79,7 +79,7 @@ body {
 
 .hero-section--work {
 	background-color: #18181c;
-	min-height: 404px;
+	min-height: 128px;
 }
 
 .hero-section--contact {
@@ -502,11 +502,8 @@ a.project-item:hover {
 
 .hero-image--work {
 	width: 100%;
-    max-width: 570px;
-    min-width: 570px;
     position: absolute;
-    bottom: -19px;
-    margin-left: 15px;
+    bottom: -82px;
 }
 
 .hero-image--linesup {
@@ -575,8 +572,9 @@ a.project-item:hover {
 		min-height: auto;
 	}
 
-	.hero-section.hero-section--work {
-		min-height: 356px;
+	.hero-image--work {
+		position: relative;
+		bottom: 0px;
 	}
 
 	.header {

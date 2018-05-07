@@ -59,6 +59,18 @@ body {
     margin-bottom: 12px;
 }
 
+.font-point---original {
+	box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+    background: #ffffff;
+    padding: 32px;
+    margin-top: 42px;
+}
+
+.font-quote {
+	font-size: 20px;
+    line-height: 34px;
+}
+
 .font-sub-nav {
 	font-size: 12px;
     line-height: 22px;
@@ -80,6 +92,10 @@ body {
 .hero-section--work {
 	background-color: #18181c;
 	min-height: 128px;
+}
+
+.hero-section--names-faces {
+	background-color: #2D566B;
 }
 
 .hero-section--contact {

@@ -589,8 +589,14 @@ a.project-item:hover {
 	margin-top: 128px;
 }
 
-@media screen and (max-width: 767px) {
+.nf-image-intro {
+		position: absolute;
+	}
 
+@media screen and (max-width: 767px) {
+	.nf-image-intro {
+		position: relative;
+	}
 	.font-header {
 		font-size: 48px;
 		line-height: 48px;

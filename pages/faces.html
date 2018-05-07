@@ -32,7 +32,16 @@
     margin-bottom: 12px;
 }
 </style>
+<script type="text/javascript">
+  $(document).ready(function(){$(".pass-input").focus();$(".submit-pass").click(function() {if ($(".pass-input").val() == "31648574490") {$(".case-exercise").fadeIn();$(".protection").hide();}else {alert("Wrong password. Please, ask ruslan.kreymer@gmail.com.")}});});
+</script>
   <body>
+    <div class="protection" style="width: 100%; text-align: center; margin-top: 128px;">
+      <input type="password" class="pass-input"/>
+      <button class="submit-pass">Submit</button>
+
+    </div>
+    <div class="case-exercise"  style="display: none">
     <div class="hero-section hero-section--names-faces">
       <div class="container">
         <div class="row header">
@@ -362,7 +371,7 @@ At this point, it’s important to mention that for lectures with a large number
           </div>
       </div>
     </div>
-
+</div>
   </body>
 </html>
 

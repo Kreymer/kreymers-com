@@ -33,7 +33,8 @@
 }
 </style>
 <script type="text/javascript">
-  $(document).ready(function(){$(".pass-input").focus();$(".submit-pass").click(function() {if ($(".pass-input").val() == "31648574490") {$(".case-exercise").fadeIn();$(".protection").hide();}else {alert("Wrong password. Please, ask ruslan.kreymer@gmail.com.")}});});
+  $(document).ready(function(){$(".pass-input").focus();$(".submit-pass").click(function() {if ($(".pass-input").val() == "31648574490") {$(".case-exercise").fadeIn();$(".protection").hide();}else {alert("Wrong password. Please, ask ruslan.kreymer@gmail.com.")}});
+    $('.pass-input').keypress(function (e) {if (e.which == 13) {if ($(".pass-input").val() == "31648574490") {$(".case-exercise").fadeIn();$(".protection").hide();}else {alert("Wrong password. Please, ask ruslan.kreymer@gmail.com.")}return false;}});});
 </script>
   <body>
     <div class="protection" style="width: 100%; text-align: center; margin-top: 128px;">
@@ -148,13 +149,13 @@ At this point, it’s important to mention that for lectures with a large number
               <div  class="section__point">
                 <h5 class="font-point">Problem definition and constraints</h5>
                 <p>
-                  From the research, I made sure that the problem is huge. Teachers find it absolutely hard to memorize the names. Some of them come up with their own methods and techniques to make it faster.
+                  Adter I went through the feedback from teachers I ubderstood that the problem is huge. Teachers find it absolutely hard to memorize the names. Some of them come up with their own methods and techniques to make it faster.
                 </p>
                 <p>
                   Several factors make it harder to speed up this process:
                 </p>
                 <ul class="section__list section__list--numeric">
-                  <li><b>Number of students</b>. Number of students appearing at once at the beginning of year/semester makes a huge cognitive load for teachers to remember the names.</li>
+                  <li><b>Number of students</b>. Number of students appearing at once at the beginning of year/semester makes a huge cognitive load for teachers.The complexity of this problem is equal to the number of students and in most cases, it's almost impossible to remember everyone without a great effort..</li>
                   <br/>
                   <li><b>Rare meetings related to activities</b>. The underlying problem of remembering the names is that in most cases a teacher meets students weekly and for short period of time (1-2 hours) which is not enough to build strong images of students and create associations with their names.
 </li>             <br/>
@@ -164,6 +165,7 @@ At this point, it’s important to mention that for lectures with a large number
 </li><br/>
                   <li><b>Students are not aware of this issue</b>. Students might not be aware of this issue otherwise they could help a teacher to remember their names. </li>
                 </ul>
+                <p>I turned this aspects of the problem into the requirements for the solution.</p>
                 <p class="font-point---original">The solution has to help an educators to match faces with names of <b>large number of students</b>. It should <b>fit to teachers and students activities</b> and do not interrupt or create large additional cognitive load during lectures or other activities with students. The solution should provide opportunity for <b>every student to express uniqueness</b>. Ideally, it should not require <b>lots of dedicated time</b> from a teacher and should assist in <b>remembering the names faster</b>.</p>
               </div>
             </div>
@@ -203,6 +205,12 @@ At this point, it’s important to mention that for lectures with a large number
                 </p>
                 <img src="../images/nf-sketch.jpg" width="100%" style="margin-bottom: 32px;"/>
                 <p>
+                The main idea of the app is to meet virtually teachers with students. In order to join the app students record short selfie videos where they introduce themselves and say one unique fact about them to help teachers create an image. Students can use the app to see teachers and watch videos from classmates.
+              </p>
+              <p>
+On the other side of the app teachers regularly see who is appearing in the app and 'meet' them by watching selfie-videos. Teachers can practice by going through quizzes and memorizing the names. The ultimate goal for every teacher to achieve 100% accuracy for all student names.
+</p>
+                <p>
                   With the general idea of the app and flow in mind, I proceeded with wireframes.
                 </p>
               </div>
@@ -218,6 +226,7 @@ At this point, it’s important to mention that for lectures with a large number
            <div class="row section">
             <div class="col-md-9">
               <div  class="section__point">
+
                 <p><b>Students</b></p>
                 In order to be successful, the app requires the right contribution from students. That's why at the beginning I explain the problem and make it clear through the onboarding steps what is required from student:          
                 <ul class="section__list section__list--dashed">

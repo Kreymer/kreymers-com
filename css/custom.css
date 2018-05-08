@@ -608,8 +608,7 @@ a.project-item:hover {
 		position: relative;
 	}
 	.nf-context-pictures {
-		position: relative;
-		max-width: 282px;
+		display: none;
 	}
 	.font-header {
 		font-size: 48px;

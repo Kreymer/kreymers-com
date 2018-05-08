@@ -589,7 +589,8 @@ a.project-item:hover {
 	margin-top: 128px;
 }
 
-.nf-image-intro {
+.nf-image-intro,
+.nf-context-pictures {
 		position: absolute;
 	}
 
@@ -601,9 +602,14 @@ a.project-item:hover {
     border: 1px solid #ebebeb;
 }
 
+
 @media screen and (max-width: 767px) {
 	.nf-image-intro {
 		position: relative;
+	}
+	.nf-context-pictures {
+		position: relative;
+		max-width: 282px;
 	}
 	.font-header {
 		font-size: 48px;

@@ -59,6 +59,10 @@ body {
     margin-bottom: 12px;
 }
 
+.font-centered {
+	text-align: center;
+}
+
 .font-point---original {
 	box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
     background: #ffffff;
@@ -110,6 +114,11 @@ body {
 
 .hero-section--booking {
 	background-color: #001b42;
+	min-height: 436px;
+}
+
+.hero-section--tesla {
+	background-color: #000;
 	min-height: 436px;
 }
 

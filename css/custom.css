@@ -447,6 +447,22 @@ a.project-item:hover {
 	color: #fff;
 }
 
+.project-line__tesla {
+	background: #000;
+	color: #fff;
+}
+
+.project-line__tesla img {
+	margin-top: 16px;
+    width: 250px;
+    transition: all .2s ease;
+}
+
+.project-line__tesla:hover  img {
+	margin-top: 20px;	
+}
+
+
 .footer {
 	font-size: 13px;
     color: #707070;

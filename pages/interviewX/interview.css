@@ -1,0 +1,101 @@
+.interview-section {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    color: #eee;
+}
+
+.interview-intro {
+    max-width: 600px;
+    padding-top: 250px;
+    margin: 0 auto;
+}
+
+.interview-process {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 250px;
+}
+
+.interview-explainer {
+    max-width: 600px;
+    padding-top: 150px;
+    margin: 0 auto;
+}
+
+.interview-title {
+    margin-bottom: 24px;
+}
+
+.interview-description {
+    margin-top: 32px;
+}
+
+.interview-actions {
+    margin-top: 32px;
+}
+
+.interview-question {
+    padding-top: 15%;
+    margin-bottom: 24px;
+}
+
+#videoElement {
+    margin-top: 32px;;
+    margin-bottom: 32px;
+	width: 600px;
+	height: 300px;
+	background-color: #333;
+}
+
+#videoElement2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #000;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.video-layer {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    background: linear-gradient(to top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.scene-image {
+    width: 100%;
+    height: 100%;    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.scene-image--intro {
+    background-image: url(intro.jpg);
+    background-position-x: center;
+    background-position-y: 80px;
+}
+
+.ix-dot {
+    width: 96px;
+    height: 96px;
+    background: #000;
+    border-radius: 48px;
+    display: inline-block;
+    margin: 0 auto;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 68px;
+    animation: blinker 1s linear infinite;
+}

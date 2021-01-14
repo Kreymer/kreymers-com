@@ -1,0 +1,168 @@
+body {
+    background-color: #000;
+}
+
+.scene-section,
+.navigation {
+    opacity: 0;
+}
+
+.scene-section {
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+}
+
+.scene-section.step0 {
+    
+    background-size: 100%;
+
+}
+
+.scene-image {
+    width: 100%;
+    height: 100%;    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.scene-letters {
+    width: 100%;
+    height: 60%;    
+    padding-top: 250px;
+}
+
+.scene-content {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.scene-content .scene-header {
+    margin: 0;
+    max-width: 550px;
+}
+
+.scene-content--right {
+    margin-left: 50%;
+}
+
+.scene-image--intro {
+    background-image: url(intro.jpg);
+    background-position: top;
+}
+
+.scene-image--intro .scene-header {
+    padding-top: 348px;
+}
+
+.scene-image--hall {
+    background-image: url(hall_graphics.jpg);
+}
+
+.scene-image--story {
+    padding-top: 256px;
+    background-image: url(story_graphics.jpg);
+}
+
+.scene-image--interview {
+    background-image: url(interview_graphics.jpg);
+    padding-top: 64px;
+}
+
+.scene-image--laptop {
+    background-image: url(laptop_graphics.jpg);
+    padding-top: 196px;
+}
+
+.scene-image--interview .scene-header {
+    padding-top: 348px;
+}
+
+.scene-image--icons {
+    background-image: url(icons_around.jpg);
+    padding-top: 300px;
+}
+
+.scene-image--recording {
+    background-image: url(recording.jpg);
+    padding-top: 300px;
+}
+
+.scene-image--superpower {
+    background-image: url(superpower_graphics.jpg);
+    padding-top: 100px;
+}
+
+.scene-image--review {
+    background-image: url(review.jpg);
+    padding-top: 250px;
+}
+
+.scene-header {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 64px 32px 0 32px;
+}
+
+.scene-description {
+    opacity: .9;
+    margin-bottom: 24px;
+}
+
+
+.ix-secondary-block {
+    margin-top: 16px;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.ix-dot {
+    width: 96px;
+    height: 96px;
+    background: #000;
+    border-radius: 48px;
+    display: inline-block;
+    margin: 0 auto;
+    position: absolute;
+    margin-top: -148px;
+    margin-left: 71px;
+    animation: blinker 1s linear infinite;
+}
+
+.interview-step {
+    margin-top: 64px
+}
+
+.card-answer {
+    background-image: url(answer_icon.png);
+}
+
+.card-story {
+    background-image: url(story_icon.png);
+}
+
+.card-interview {
+    background-image: url(interview_icon.png);
+}
+
+@keyframes zoom{
+    0%{
+     transform: scale(0.8);
+    }
+    100%{
+       transform: scale(1);
+    }
+    
+}
+
+.animate-zoom {
+    animation: zoom 20s ease-in-out;
+}

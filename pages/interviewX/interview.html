@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Interview X</title>
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="interview.js"></script>
+    
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="elements.css">
+    <link rel="stylesheet" href="interview.css">
+  </head>
+
+  <body>
+    <div class="navigation">
+        <div class="navigation-content">
+            <a href="index.html"><div class="logo"><span class="interview-dot">&#9679;</span> <span class="logo-label">В чем смысл?</span></div></a>
+        </div>
+    </div>
+    <div class="interview-section">
+        <div class="interview-intro text-center step1">
+            <p class="interview-title ix-header3">
+                Для начала разговора нам нужен доступ к вашей камере и микрофону
+            </p>
+            <p class="interview-description ix-body">
+                Обратите внимание, что мы не храним записи Ваших ответов. Запись доступна только в браузере вашего компьютера и будет автоматически удалена при переходе к следующему вопросу или при закрытии страницы браузера. Тренируйтесь спокойно :)
+            </p>
+            <div class="interview-actions">
+                <div class="ix-button connect-camera">
+                    Подключить камеру
+                </div>
+                <div class="ix-button connect-mic">
+                    Подключить микрофон
+                </div>
+            </div>
+        </div>
+        <div class="interview-intro text-center step2" style="display: none">
+            <p class="interview-title ix-header3">
+                Выберите стиль интервью. В каком стиле хотите себя попробовать?
+            </p>
+            <div class="interview-actions">
+                <div class="ix-button interview-style">
+                    Вопросы в стиле Дудя
+                </div>
+                <div class="ix-button interview-style">
+                    Вопросы в стиле Познера
+                </div>
+                <div class="ix-button interview-style">
+                    Как на допросе
+                </div>
+                <div class="ix-button interview-style">
+                    Вопросы от мамы
+                </div>
+            </div>
+        </div>
+        <div class="interview-explainer text-center step3" style="display: none">
+            <p class="interview-title ix-header3">Это важно</p>
+            <p class="interview-title ix-body">
+                Сейчас вам будет задано пара вопросов. Отвечайте на них как Вам угодно, а после мы покажем Вам видео с Вашим ответом. Когда закончите ответ нажмите на пробел.
+            </p>
+            <p class="interview-title ix-body">
+                Ах да, как вы выглядите? Жмите "Поехали!" если все ок.
+            </p>
+            <video autoplay="true" id="videoElement">
+	
+            </video>
+            <div class="ix-button interview-start">
+                Поехали!
+            </div>
+            <div class="ix-button ix-button--secondary">
+                Не вижу себя
+            </div>
+        </div>
+        <div class="interview-process scene-image scene-image--intro text-center step4" style="display: none">
+            <div class="text-center ix-white scene-header">
+                <div class="ix-dot"></div>
+                <p class="interview-question ix-header1">
+                    В чем сила? Только коротко.
+                </p>
+                <p class="interview-title ix-body">
+                    Жмите ПРОБЕЛ как закончите ответ.
+                </p>
+            </div>
+        </div>
+        <div class="interview-explainer text-center step5" style="display: none">
+            <video autoplay="true" id="videoElement2">
+	
+            </video>
+            <div class="video-layer">
+                <p class="interview-title ix-body">
+                    Отлично! Вот что вышло
+                </p>
+                <div class="ix-button interview-finish">
+                    Далее
+                </div>
+            </div>
+        </div>
+    </div>
+      </body>
+</html>
+

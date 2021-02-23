@@ -95,7 +95,10 @@
     <script type="text/javascript">
       $(document).ready(function(){
         var now = new Date();
-        $("#time-ams").html(formatNumber(formatHours(now.getUTCHours())) + ":" + formatNumber(now.getUTCMinutes()));
+        var hourIndex = 0;
+        if (now.getMonth() <= 3 && now.getDate() < 28)
+          hourIndex = -1;
+        $("#time-ams").html(formatNumber(formatHours(now.getUTCHours(), hourIndex)) + ":" + formatNumber(now.getUTCMinutes()));
       });
       var formatNumber = function(t) {
         if (t < 10)
@@ -103,8 +106,8 @@
         else return t;
       }
 
-      var formatHours = function(t) {
-        t = t + 2;
+      var formatHours = function(t, index) {
+        t = t + 2 + index;
         if (t == 24)
           return 0;
         else return t;

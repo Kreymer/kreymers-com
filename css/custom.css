@@ -117,6 +117,14 @@ body {
 	min-height: 436px;
 }
 
+.hero-section--heropractice {
+	background-color: #2b538b;
+}
+
+.hero-section--pbc {
+	background-color: #202020;
+}
+
 .hero-section--tesla {
 	background-color: #000;
 	min-height: 436px;
@@ -594,6 +602,14 @@ a.project-item:hover {
 	margin-left: -232px;
 }
 
+.hero-image--heropractice {
+	max-width: 425px;
+    margin-top: -52px;
+    position: absolute;
+    margin-right: -460px;
+    right: 0;
+}
+
 .hero-image--instahue
 {
 	width: 353px;
@@ -627,6 +643,35 @@ a.project-item:hover {
     border: 1px solid #ebebeb;
 }
 
+.showcase-window {
+	width: 100%;
+    max-width: 711px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 20%);
+    border-radius: 6px;
+}
+
+.check-live-btn {
+	background: #fff;
+    display: inline-block;
+    color: #333;
+    padding: 12px 12px;
+    border-radius: 6px;
+}
+
+.hero-section a.check-live-btn:link {
+	opacity: 0.8;
+}
+
+.hero-section a.check-live-btn,
+.hero-section a.check-live-btn:link,
+.hero-section a.check-live-btn:hover {
+	opacity: 1;
+	color: #333;
+	text-decoration: none;
+}
 
 @media screen and (max-width: 767px) {
 	.nf-image-intro {

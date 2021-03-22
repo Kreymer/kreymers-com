@@ -1,7 +1,11 @@
-@import url("/count/35f2be");
 @font-face {font-family: 'SofiaProRegular';src: url('webfonts/35F2BE_0_0.eot');src: url('webfonts/35F2BE_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/35F2BE_0_0.woff2') format('woff2'),url('webfonts/35F2BE_0_0.woff') format('woff'),url('webfonts/35F2BE_0_0.ttf') format('truetype');}
 @font-face {font-family: 'SofiaProSemiBold';src: url('webfonts/35F2BE_1_0.eot');src: url('webfonts/35F2BE_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/35F2BE_1_0.woff2') format('woff2'),url('webfonts/35F2BE_1_0.woff') format('woff'),url('webfonts/35F2BE_1_0.ttf') format('truetype');}
- 
+
+a:link,
+a:visited {
+	color: #000;
+}
+
 
 body {
   font-family: "PT Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -235,14 +239,14 @@ body {
 .navigation-section a:visited{
 	color: #000;
 	opacity: 0.75;
-	transition: all .2s ease;
+	
 }
 
 .hero-section a:link,
 .hero-section a:visited{
 	color: #fff;
 	opacity: 0.75;
-	transition: all .2s ease;
+	
 }
 
 .navigation-section a:hover,

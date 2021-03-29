@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <script type="text/javascript" src="pizzip.js"></script>
+    <script type="text/javascript" src="docxtemplater-latest.min.js"></script>
+</head>
+  <body>
+    <div class="char-number">0</div>
+    <div class="upload-form">
+      <label class="button-upload" for="file-upload">Upload document</label>
+      <input class="input-upload" id="file-upload" type="file" onchange="uploadFiles()"/>
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    padding: 64px;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+    text-align: center;
+  }
+
+  input.input-upload[type="file"] {
+      display: none;
+  }
+
+  .button-upload {
+    background: #333;
+    color: #fff;
+    padding: 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+
+  .button-upload:hover {
+    cursor: pointer;
+    background: #030303;
+  }
+
+  .upload-form {
+    margin: 0 auto;
+    display: inline-block;
+  }
+
+  .char-number {
+    height: 180px;
+    font-size: 84px;
+  }
+</style>
+
+<script type="text/javascript">
+
+var docs = document.querySelector("#file-upload");
+var charNumber = document.querySelector(".char-number");
+
+function uploadFiles() {
+
+  var reader = new FileReader();
+  if (docs.files.length === 0) {
+      alert("No files selected")
+  }
+  reader.readAsBinaryString(docs.files.item(0));
+
+  reader.onerror = function (evt) {
+      console.log("error reading file", evt);
+      alert("error reading file" + evt)
+  }
+  reader.onload = function (evt) {
+      const content = evt.target.result;
+      var zip = new PizZip(content);
+      var doc = new Docxtemplater().loadZip(zip)
+      var text = doc.getFullText();
+      if (text && text.length > 0) {
+        charNumber.innerHTML = text.length;
+      }
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

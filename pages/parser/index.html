@@ -6,13 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">    
     <script type="text/javascript" src="pizzip.js"></script>
     <script type="text/javascript" src="docxtemplater-latest.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+      emailjs.init("user_CW02cvPSzUjSVMIarplV5");
+      })();
+      </script>
 </head>
   <body>
-    <div class="char-number">0</div>
-    <div class="upload-form">
-      <label class="button-upload" for="file-upload">Upload document</label>
-      <input class="input-upload" id="file-upload" type="file" onchange="uploadFiles()"/>
-    </div>
+    <form action="#send" id="request-service-form">
+      <div class="row bpad">
+        <div class="block-header">Рассчитать стоимость</div>
+        <div class="char-number">2500 знаков</div>
+      </div>
+      <div class="row" param="language">
+        <div class="button-select" data-param="russian">русский язык</div>
+        <div class="button-select" data-param="english">английский язык</div>
+      </div>
+      <div class="row" param="time">
+        <div class="button-select" data-param="urgent">24 часа</div>
+        <div class="button-select" data-param="regular">2 дня</div>
+      </div>
+      <div class="row">
+        <div class="upload-form">
+          <label class="button-upload" for="file-upload">Загрузить документ</label>
+          <div class="document-name"></div>
+          <input class="input-upload" id="file-upload" type="file" onchange="calculateCharNumber()"/>
+        </div>
+      </div>
+      <div class="row">
+        <input type="text" class="input-form" id="name" requred placeholder="Имя"/>
+        <input type="email" class="input-form" id="email" requred placeholder="Почта"/>
+        <input type="phone" class="input-form" id="phone" requred placeholder="Телефон"/>
+      </div>
+      <div class="row">
+        <input type="submit" class="button-send" value="Отправить заявку"/>
+      </div>
+    </form>
   </body>
 </html>
 
@@ -22,6 +52,18 @@
     -webkit-font-smoothing: antialiased;
     font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
     text-align: center;
+    font-size: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .row {
+    float: left;
+    width: 100%;
+  }
+
+  .bpad {
+    margin-bottom: 8px;
   }
 
   input.input-upload[type="file"] {
@@ -29,56 +71,339 @@
   }
 
   .button-upload {
-    background: #333;
-    color: #fff;
-    padding: 24px;
-    font-size: 18px;
-    border-radius: 8px;
+    padding: 32px 0;
     transition: 0.3s;
+    display: block;
+    width: 100%;
+    border: 1px solid #eee;
+    height: 100px;
+    box-sizing: border-box;
   }
 
   .button-upload:hover {
     cursor: pointer;
-    background: #030303;
+    background: #eee;
   }
 
   .upload-form {
     margin: 0 auto;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    position: relative;
   }
 
   .char-number {
-    height: 180px;
-    font-size: 84px;
+    float: right
   }
+
+  .block-header {
+    float: left
+  }
+
+  .button-select {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    height: 100px;
+    border: 1px solid #eee;
+    padding-top: 32px;
+    transition: 0.3s;
+  }
+
+  .button-select[active="true"] {
+    color: #fff;
+    background: #6F6F6F;
+  }
+
+  .button-select:hover {
+    cursor: pointer;
+    background: #eee;
+  }
+
+  .button-select[active="true"]:hover {
+    color: #fff;
+    background: #6F6F6F;
+  }
+
+  .button-send {
+    background: #383838;
+    color: #fff;
+    padding: 32px 0;
+    transition: 0.3s;
+    display: block;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: none;
+    font-size: 24px;
+  }
+
+  .button-send:hover {
+    cursor: pointer;
+    background: #111;
+  }
+
+  .input-form {
+    display: block;
+    width: 33.3%;
+    float: left;
+    box-sizing: border-box;
+    border: 1px solid #eeeeee;
+    padding: 32px;
+    font-size: 24px;
+  }
+
+  .document-name {
+    position: absolute;
+    width: 100%;
+    margin-top: -33px;
+    font-size: 16px;
+    color: #aaa;
+    z-index: -1;
+  }
+
 </style>
 
 <script type="text/javascript">
 
-var docs = document.querySelector("#file-upload");
-var charNumber = document.querySelector(".char-number");
+//global variables for calculations
 
-function uploadFiles() {
+let price;
+let characterNumber = 2500;
+let currrentType = "silver";
+let uploadedDocument = false;
+let linkToTheDocument = "";
+let calculatedPrice;
 
-  var reader = new FileReader();
-  if (docs.files.length === 0) {
-      alert("No files selected")
+// variable holding current selection
+let pricingParams = {
+  "type": "silver",
+  "language" : null,
+  "time": null
+}
+
+const emailJsService = "service_5zbkh3r";
+const emailJsTemplate = "template_mjdi55g";
+
+const pageCharacterNumber = 2500;
+//prices
+const prices = {
+  silver: {
+    russian: {
+      regular: 500,
+      urgent: 750
+    },
+    english: {
+      regular: 2000,
+      urgent: 3000
+    }
+  },
+  gold: {
+    russian: {
+      price: 2500,
+      regular: 3750
+    },
+    english: {
+      regular: 5000,
+      urgent: 7500
+    }
   }
-  reader.readAsBinaryString(docs.files.item(0));
+}
 
-  reader.onerror = function (evt) {
-      console.log("error reading file", evt);
-      alert("error reading file" + evt)
-  }
-  reader.onload = function (evt) {
-      const content = evt.target.result;
-      var zip = new PizZip(content);
-      var doc = new Docxtemplater().loadZip(zip)
-      var text = doc.getFullText();
-      if (text && text.length > 0) {
-        charNumber.innerHTML = text.length;
+let selectors = document.querySelectorAll(".button-select");
+if (selectors) {
+  for (var i = 0; i < selectors.length; i++) {
+
+    //when click on selector
+    selectors[i].onclick = function(evt) {
+      //manupulations for visual selection
+      let selectorButtons = evt.target.parentNode.querySelectorAll(".button-select");
+      for (var j = 0; j < selectorButtons.length; j++) {
+        selectorButtons[j].setAttribute("active", false);
       }
+      evt.target.setAttribute("active", true);
+      
+      // set price depending on selection
+      setPricingParam(evt.target.parentNode.getAttribute("param"), evt.target.getAttribute("data-param"));
+    }
   }
+}
+
+let requestForm = document.querySelector("#request-service-form");
+
+requestForm.onsubmit = function(event) {
+  event.preventDefault();
+  // if all validation goes well
+  if (validateForm()) {
+    sendRquestEmail(
+      document.querySelector("#name").value,
+      document.querySelector("#email").value,
+      document.querySelector("#phone").value
+    );
+  } else return false;
+}
+
+function sendRquestEmail(name, email, phone) {
+
+  let type = pricingParams["type"] == "silver" ? "Пакет Silver | " : "Пакет Gold | ";
+  let language = pricingParams["language"] == "english" ? "Документ на английском |" : "Документ на русском |";
+  let time = pricingParams["time"] == "urgent" ? " 24 часа" : " 2 дня";
+
+  emailjs.send(emailJsService, emailJsTemplate, {
+    name: name,
+    email: email,
+    phone: phone,
+    type: type + language + time,
+    link: linkToTheDocument,
+    price: calculatedPrice
+  })
+  .then(function() {
+      alert('Ваша заявка успешно оправлена');
+      location.reload();
+  }, function(error) {
+      console.log('Failed sendig email', error);
+  });
+}
+
+//set one of the params
+function setPricingParam(key, value) {
+  pricingParams[key] = value;
+  calculateFinalPrice();
+} 
+
+//calculate final price
+function calculateFinalPrice() {
+  if (pricingParams["language"] && pricingParams["time"]) {
+    price = prices[pricingParams["type"]][pricingParams["language"]][pricingParams["time"]];
+
+    let tmpPageCounterFloat = characterNumber/pageCharacterNumber;
+    let pageCount;
+    if (Number.isInteger(tmpPageCounterFloat)) {
+      pageCount = Math.floor(characterNumber/pageCharacterNumber);
+    } else {
+      pageCount = Math.floor(1 + characterNumber/pageCharacterNumber);
+    }
+
+    document.querySelector(".button-send").value = price*pageCount + "₽ — отправить заявку";
+
+    calculatedPrice = price*pageCount;
+  }
+}
+
+function calculateCharNumber() {
+  // input for files
+  var docs = document.querySelector("#file-upload");
+  
+  // define reader
+  var reader = new FileReader();
+  
+  // if files are not selected stop
+  if (docs.files.length === 0) {
+      return;
+  }
+  
+  //check extension
+  let documentName = docs.files.item(0).name;
+  let ext = documentName.split('.').pop().toLowerCase();
+  
+  // supported extensions
+  if (ext == "docx" || ext == "txt") {
+    let documentNameContainer = document.querySelector(".document-name");
+    documentNameContainer.innerHTML = documentName;
+    
+    let documentUploadLabel = document.querySelector(".button-upload");
+    documentUploadLabel.innerHTML = "Загрузить другой документ";
+  }
+
+  // if it's DOCX
+  if (ext == "docx") {
+    
+    updloadDocumentToSanity();
+    
+    reader.readAsBinaryString(docs.files.item(0));
+
+    // on error
+    reader.onerror = function (evt) {
+        console.log("error reading file", evt);
+        alert("Не удалось прочитать документ. Укажите количество символов вручную")
+    }
+
+    // on success
+    reader.onload = function (evt) {
+        const content = evt.target.result;
+        var zip = new PizZip(content);
+        var doc = new Docxtemplater().loadZip(zip);
+
+        setCharactedNum(doc.getFullText());
+    }
+  } else if (ext == "txt") { 
+
+    updloadDocumentToSanity();
+
+    reader.onload = function(evt){
+        setCharactedNum(evt.target.result)
+    };
+    reader.readAsText(docs.files[0], "UTF-8");
+  } else {
+    alert('Пожалуйста, загрузите DOCX или TXT файл.')
+  }
+  
+}
+
+//TODO
+function updloadDocumentToSanity(){
+  //set link to the document in the following variable
+  //linkToTheDocument
+}
+
+function setCharactedNum (text) {
+  // element to display char number
+  var charNumber = document.querySelector(".char-number");
+
+  if (text && text.length > 0) {
+    // show character number
+    charNumber.innerHTML = text.length + " знаков";
+
+    //set variable for char number 
+    characterNumber = text.length;
+
+    //calculate the price
+    calculateFinalPrice();
+
+    uploadedDocument = true;
+  }
+}
+
+//validation of all input fields
+function validateForm() {
+  if (!pricingParams["language"] || !pricingParams["time"]) {
+    alert('Для отправки формы вам необходимо указать язык документа и срок')
+    return false;
+  }
+  if (!uploadedDocument) {
+    alert('Для отправки формы вам необходимо загрузить документ, с которым необходимо будет работать')
+    return false;
+  }
+  let nameField = document.querySelector("#name");
+  if (nameField.value.trim() == "") {
+    alert('Пожалуйста укажите ваше имя, чтобы мы знали как к вам образаться');
+    return false;
+  }
+
+  let emailField = document.querySelector("#email");
+  if (emailField.value.trim() == "") {
+    alert('Пожалуйста укажите ваш адрес электронной почта, чтобы мы знали как с вами связаться');
+    return false;
+  }
+
+  let phoneField = document.querySelector("#phone");
+  if (phoneField.value.trim() == "") {
+    alert('Пожалуйста укажите ваш телефонный номер, чтобы мы знали как с вами связаться');
+    return false;
+  }
+
+  return true;
 }
 </script>
 

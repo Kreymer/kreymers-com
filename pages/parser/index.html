@@ -186,8 +186,11 @@ let pricingParams = {
 const emailJsService = "service_5zbkh3r";
 const emailJsTemplate = "template_mjdi55g";
 
+const sanityTokenWithWriteAccess = 'skmAQVJjHdsVFKS4TCsoiVvZIeEUN9qFw545I0JD4YSoBrD80kryUFXitu2g1peNqfrVZA1Mwcq48Sk0KOXCt8b8KnLIRAtNuDbwrAq6YoxsJFw2KtFhVYbQDGFEQNzLDCJTJaBYa4HfdL7wmz7H5FgAGtax1MlUdusEBfkeQsNvegVVlwPw';
+const sanityFetchUrl = 'https://spfa8rwc.api.sanity.io/v1/assets/files/production';
+
 const pageCharacterNumber = 2500;
-//prices
+
 const prices = {
   silver: {
     russian: {
@@ -212,6 +215,7 @@ const prices = {
 }
 
 let selectors = document.querySelectorAll(".button-select");
+
 if (selectors) {
   for (var i = 0; i < selectors.length; i++) {
 
@@ -319,7 +323,7 @@ function calculateCharNumber() {
   // if it's DOCX
   if (ext == "docx") {
     
-    updloadDocumentToSanity();
+    updloadDocumentToSanity(docs.files.item(0));
     
     reader.readAsBinaryString(docs.files.item(0));
 
@@ -339,7 +343,7 @@ function calculateCharNumber() {
     }
   } else if (ext == "txt") { 
 
-    updloadDocumentToSanity();
+    updloadDocumentToSanity(docs.files.item(0));
 
     reader.onload = function(evt){
         setCharactedNum(evt.target.result)
@@ -351,10 +355,27 @@ function calculateCharNumber() {
   
 }
 
-//TODO
-function updloadDocumentToSanity(){
-  //set link to the document in the following variable
-  //linkToTheDocument
+//upload documnent to Sanity
+function updloadDocumentToSanity(file){
+  // create reference to the file
+  var src = URL.createObjectURL(file);
+
+  //fetching
+  fetch(sanityFetchUrl, {
+      method: 'post',
+      headers: {
+          'Content-type': file.type,
+          Authorization: 'Bearer ' + sanityTokenWithWriteAccess
+      },
+      body: file
+  })
+  .then(response => response.json())
+  .then(function(data) {      
+      //set public URL link to the document in the following variable
+      if (data && data.document) {
+        linkToTheDocument = data.document.url;
+      }
+  });
 }
 
 function setCharactedNum (text) {
